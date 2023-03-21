@@ -1,22 +1,18 @@
-export interface Child {
+export interface Tree {
   id: number;
-  child_name: string;
-  guardian_name: string;
-  guardian_phone: number;
-  age: number;
-  location: string;
-  is_male: boolean;
+  name: string;
+  rainfall: number;
+  maturity:  number;
+  uses: string[];
 }
 
-export function validateChild(_data: any): _data is Child {
+export function validateChild(_data: Tree): _data is Tree {
   // check if all the required fields are present and of the correct type
   return (
     typeof _data.id === "number" &&
-    typeof _data.child_name === "string" &&
-    typeof _data.guardian_name === "string" &&
-    typeof _data.guardian_phone === "number" &&
-    typeof _data.age === "number" &&
-    typeof _data.location === "string" &&
-    typeof _data.is_male === "boolean"
+    typeof _data.name === "string" &&
+    typeof _data.rainfall === "number" &&
+    typeof _data.maturity === "number" &&
+    typeof _data.uses === "object"
   );
 }
