@@ -7,6 +7,7 @@ export default [
         diseases_protected: ["Tuberculosis"],
       },
     ],
+    
     age_range: { start: 0, end: 42 },
   },
   {
