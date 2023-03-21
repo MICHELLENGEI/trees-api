@@ -1,9 +1,15 @@
-export interface Tree {
-  id: number;
+export interface TTree {
   name: string;
-  rainfall: number;
+  rainfall: {
+    start: number,
+    end: number
+  };
   maturity:  number;
   uses: string[];
+
+}
+export interface Tree extends TTree {
+  id: number;
 }
 
 export function validateChild(_data: Tree): _data is Tree {
@@ -11,7 +17,7 @@ export function validateChild(_data: Tree): _data is Tree {
   return (
     typeof _data.id === "number" &&
     typeof _data.name === "string" &&
-    typeof _data.rainfall === "number" &&
+    typeof _data.rainfall === "object" &&
     typeof _data.maturity === "number" &&
     typeof _data.uses === "object"
   );
